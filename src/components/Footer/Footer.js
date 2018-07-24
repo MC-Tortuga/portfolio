@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
-import "./style";
-class Footer extends Component {
-    render() {
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import './style';
+
+const Footer= (props, context)=> {
+    const { theme: { colorPrimary, textPrimary } } = context;
+    
         return (
         <footer>
         <div>
@@ -9,7 +13,11 @@ class Footer extends Component {
         </div>
             </footer>
         );
-    }
-}
+    };
+
+    Footer.contextTypes = {
+        theme: PropTypes.any,
+        switchTheme: PropTypes.func
+      };
 
 export default Footer;
